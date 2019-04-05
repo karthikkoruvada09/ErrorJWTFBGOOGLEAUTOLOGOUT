@@ -1,16 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { ServeService } from './serve.service';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class AutoLogoutService {
 
 
   constructor(private router: Router, private ser: ServeService) {
   }
-
   special() {
     this.check();
     this.initListener();
@@ -29,11 +20,9 @@ export class AutoLogoutService {
     localStorage.setItem(this.STORE_KEY, String(value));
   }
 
-
   initListener() {
-    document.body.addEventListener('click', () => this.reset());
-    // document.body.addEventListener('keypress', () => this.reset());
-    // document.body.addEventListener('mousemove', () => this.reset());
+   document.body.addEventListener('click', () => this.reset());
+     document.body.addEventListener('keypress', () => this.reset());
   }
 
   reset() {
@@ -44,25 +33,19 @@ export class AutoLogoutService {
   intervalId;
   initInterval() {
     this.intervalId = setInterval(() => {
-      this.check();
+        this.check();
     }, this.CHECK_INTERVAL);
   }
 
 
   check() {
-    //  console.log(this.lastAction);
     const now = Date.now();
     const timeleft = this.lastAction + 15000;              // this.MINUTES_UNITL_AUTO_LOGOUT * 60 * 1000   ------i kept directly the seconds here    autologout time=15 sec
     const diff = timeleft - now;
     const isTimeout = diff < 0;
-    if (isTimeout && this.ser.getToken()) {  
-      console.log(this.intervalId)
+    if (isTimeout && this.ser.getToken()) {    
       clearInterval(this.intervalId);         //additionally checking  token also here but not necessary    anyhow this wont be called without logging in
       this.router.navigate(['/login']);
     }
   }
 
-
-
-
-}

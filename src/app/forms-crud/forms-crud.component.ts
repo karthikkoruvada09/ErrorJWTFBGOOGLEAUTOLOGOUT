@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CrudserviceService } from '../crudservice.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AutoLogoutService } from '../auto-logout.service';
+
 
 @Component({
   selector: 'app-forms-crud',
@@ -11,8 +11,8 @@ import { AutoLogoutService } from '../auto-logout.service';
 })
 export class FormsCrudComponent implements OnInit {
 
-  constructor(private serc:CrudserviceService,private router:Router,private autolog:AutoLogoutService) {
-    this.autolog.special();    //calling auto logout service
+  constructor(private serc:CrudserviceService,private router:Router) {
+  //calling auto logout service
    }
 
 data=[];

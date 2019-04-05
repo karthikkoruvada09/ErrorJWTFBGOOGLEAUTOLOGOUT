@@ -36,5 +36,17 @@ export class ServeService {
     return localStorage.getItem('token')
   }
 
+
+
+  tokenPresence():any{
+    if(localStorage.getItem('token')){
+      return true;
+    }
+    return  false;
+  }
+
+
+  
+  
   
 }

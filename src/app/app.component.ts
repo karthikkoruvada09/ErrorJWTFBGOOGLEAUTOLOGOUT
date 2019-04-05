@@ -7,7 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit,DoCheck {
+export class AppComponent implements OnInit {
   title = 'jwt-mvc';
 
  token:any;
@@ -17,15 +17,11 @@ export class AppComponent implements OnInit,DoCheck {
 ngOnInit(){
       //shouldn't be kept removing localstorage token...
 }
-ngDoCheck(){
-  // console.log("outside")
-  // setInterval(()=>{
-  //   console.log("inside")
-  //   this.router.navigate(['/login']);
-  // },60*1000)
-}
-  logout(){
+ logout(){
     localStorage.removeItem('token');
     this.router.navigate(['/'])
-  }
+  };
+
+
+
 }

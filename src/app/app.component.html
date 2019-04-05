@@ -15,22 +15,20 @@
           <a class="nav-link"   routerLink="/special" >Special</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" *ngIf="!this.ser.getToken()"   routerLink="/register" >Register</a>
+          <a class="nav-link" *ngIf="!this.ser.tokenPresence()"   routerLink="/register" >Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  *ngIf="!this.ser.getToken()"   routerLink="/login" >Login</a>
+          <a class="nav-link"  *ngIf="!this.ser.tokenPresence()"   routerLink="/login" >Login</a>
         </li> 
 
 
         <li class="nav-item">
-          <a class="nav-link"  *ngIf="this.ser.getToken()"  routerLink="/crud"  >CrudOperations</a>
+          <a class="nav-link"  *ngIf="this.ser.tokenPresence()"  routerLink="/crud"  >CrudOperations</a>
         </li>
      
         <li class="nav-item">
-          <a class="nav-link"  *ngIf="this.ser.getToken()"  (click)="logout()"  >LogOut</a>
-        </li>
-     
-      
+          <a class="nav-link"  *ngIf="this.ser.tokenPresence()"  (click)="logout()"  >LogOut</a>
+        </li> 
     </ul>
     
   </div>

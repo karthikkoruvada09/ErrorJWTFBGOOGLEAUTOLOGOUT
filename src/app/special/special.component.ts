@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ServeService } from '../serve.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AutoLogoutService } from '../auto-logout.service';
+
 
 
 @Component({
@@ -11,8 +11,8 @@ import { AutoLogoutService } from '../auto-logout.service';
 })
 export class SpecialComponent implements OnInit {
 
-  constructor(private ser:ServeService,private router:Router,private route:ActivatedRoute,private autolog:AutoLogoutService) { 
-       this.autolog.special();    //calling auto logout service
+  constructor(private ser:ServeService,private router:Router,private route:ActivatedRoute) { 
+       
   }
 
   
